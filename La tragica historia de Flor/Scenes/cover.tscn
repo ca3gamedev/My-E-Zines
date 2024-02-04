@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://v2vqlnl6sesl"]
+
+[ext_resource type="Script" path="res://Scenes/Code/cover.gd" id="1_b3h3o"]
+[ext_resource type="Texture2D" uid="uid://bd6l1dvtb7mcs" path="res://2D/Pages/Cover.png" id="1_n1ena"]
+[ext_resource type="FontFile" uid="uid://b6ckuneecs4k2" path="res://Fonts/ProtestRevolution-Regular.ttf" id="2_46nvy"]
+
+[node name="Cover" type="Node2D"]
+z_index = -100
+z_as_relative = false
+script = ExtResource("1_b3h3o")
+Next = "res://Scenes/story.tscn"
+
+[node name="Cover" type="Sprite2D" parent="."]
+z_index = -100
+z_as_relative = false
+scale = Vector2(0.755, 0.7575)
+texture = ExtResource("1_n1ena")
+centered = false
+
+[node name="Title" type="Label" parent="."]
+offset_left = 302.0
+offset_top = 19.0
+offset_right = 591.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.203922, 0.054902, 0.439216, 1)
+theme_override_fonts/font = ExtResource("2_46nvy")
+theme_override_font_sizes/font_size = 40
+text = "La bella
+ y 
+trágica
+ historia de Flor."
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 570.0
+offset_right = 574.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0.133333, 0.0509804, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_46nvy")
+theme_override_font_sizes/font_size = 25
+text = "3 Feb 2024 by ca3"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 92.0
+offset_top = 7.0
+offset_right = 272.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.670588, 0.670588, 0.670588, 1)
+theme_override_fonts/font = ExtResource("2_46nvy")
+text = "Z to change Language"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 119.0
+offset_top = 70.0
+offset_right = 299.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.670588, 0.670588, 0.670588, 1)
+theme_override_fonts/font = ExtResource("2_46nvy")
+text = "Space to act"

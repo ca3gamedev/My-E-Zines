@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2e34qi0q7f0k"]
+
+[ext_resource type="Texture2D" uid="uid://bgyofs6o7ympt" path="res://2D/Pages/Chapter 00/rocky animation/01.png" id="1_bouif"]
+[ext_resource type="Script" path="res://Scenes/Code/Chapter 01/minigame_01.gd" id="1_vq3nn"]
+[ext_resource type="Texture2D" uid="uid://5d1vwygahrr2" path="res://2D/Pages/Chapter 00/rocky animation/02.png" id="2_35uks"]
+[ext_resource type="Texture2D" uid="uid://bkha214vsq3rk" path="res://2D/Pages/Chapter 00/rocky animation/03.png" id="3_vdfay"]
+[ext_resource type="Texture2D" uid="uid://dbs8k4ammq6e8" path="res://2D/Pages/Chapter 00/rocky animation/04.png" id="4_m253e"]
+[ext_resource type="Texture2D" uid="uid://b5h3tk2i0t85o" path="res://2D/Pages/Chapter 00/rocky animation/05.png" id="5_djuia"]
+[ext_resource type="Texture2D" uid="uid://drh65ojmq62h" path="res://2D/Pages/Chapter 00/rocky animation/06.png" id="6_f6i5i"]
+[ext_resource type="Texture2D" uid="uid://ddefp4dfgdg40" path="res://2D/Pages/Chapter 00/rocky animation/07.png" id="7_bmuor"]
+[ext_resource type="Texture2D" uid="uid://cbnqseclmf3yq" path="res://2D/Pages/Chapter 00/rocky animation/08.png" id="8_au6y3"]
+[ext_resource type="FontFile" uid="uid://ctop28y4jfknr" path="res://Fonts/Kanit-Bold.ttf" id="9_owilm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi833"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bouif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_35uks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vdfay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m253e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_djuia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f6i5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bmuor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_au6y3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Minigame01" type="Node2D"]
+script = ExtResource("1_vq3nn")
+max_pics = 7
+Next = "res://Scenes/Chapters/chapter_02.tscn"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_gi833")
+frame = 7
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 526.0
+offset_right = 185.0
+offset_bottom = 554.0
+theme_override_colors/font_color = Color(0.247059, 0.247059, 0.247059, 1)
+theme_override_fonts/font = ExtResource("9_owilm")
+text = "Press Space to attack"
+
+[node name="HP" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 22.0
+offset_top = 553.0
+offset_right = 322.0
+offset_bottom = 580.0
