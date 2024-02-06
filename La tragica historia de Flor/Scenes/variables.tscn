@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://r1vj2bo72qaf"]
+[gd_scene load_steps=3 format=3 uid="uid://r1vj2bo72qaf"]
 
 [ext_resource type="Script" path="res://Scenes/Code/variables.gd" id="1_svsxg"]
+[ext_resource type="Script" path="res://Scenes/Code/ChangeScene.gd" id="2_u1oe8"]
 
 [node name="Variables" type="Node"]
 script = ExtResource("1_svsxg")
+
+[node name="ChangeScene" type="Node" parent="."]
+script = ExtResource("2_u1oe8")
+scene = ["res://Scenes/cover.tscn", "res://Scenes/story.tscn", "res://Scenes/minigame_01.tscn", "res://Scenes/Chapters/chapter_02.tscn", "res://Scenes/Chapters/minigame_02.tscn", "res://Scenes/Chapters/Chapter 3/chapter_03.tscn", "res://Scenes/Chapters/Chapter 3/chapter_04.tscn"]

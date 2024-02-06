@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl357geikmx1"]
+[gd_scene load_steps=17 format=3 uid="uid://dl357geikmx1"]
 
 [ext_resource type="Script" path="res://Scenes/Code/story01.gd" id="1_0rern"]
 [ext_resource type="Texture2D" uid="uid://fukw5gvdbpiy" path="res://2D/Pages/00.png" id="1_7hocn"]
@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://drh65ojmq62h" path="res://2D/Pages/Chapter 00/rocky animation/06.png" id="9_2t0py"]
 [ext_resource type="Texture2D" uid="uid://ddefp4dfgdg40" path="res://2D/Pages/Chapter 00/rocky animation/07.png" id="10_3wfsi"]
 [ext_resource type="Texture2D" uid="uid://cbnqseclmf3yq" path="res://2D/Pages/Chapter 00/rocky animation/08.png" id="11_r6uf4"]
-[ext_resource type="FontFile" uid="uid://ctop28y4jfknr" path="res://Fonts/Kanit-Bold.ttf" id="13_dj7sa"]
 [ext_resource type="Script" path="res://Scenes/Code/Chapter 01/Language.gd" id="14_pa21n"]
+[ext_resource type="PackedScene" uid="uid://bhmrl7mxkfaos" path="res://Scenes/GUI/pages_buttons.tscn" id="15_bd54o"]
+[ext_resource type="Theme" uid="uid://co8f15g3ddeeo" path="res://Scenes/GUI/Button.tres" id="15_ohm0f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5qar2"]
 animations = [{
@@ -47,12 +48,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Story" type="Node2D"]
+[node name="Story" type="Node2D" node_paths=PackedStringArray("TextosSpanish", "TextosEnglish", "TextosJapanese")]
 z_index = -100
 z_as_relative = false
 script = ExtResource("1_0rern")
 MaxPages = 3
-Next = "res://Scenes/minigame_01.tscn"
+Next = 2
+TextosSpanish = [NodePath("Pages/1/Spanish")]
+TextosEnglish = [NodePath("Pages/1/English")]
+TextosJapanese = [NodePath("Pages/1/japanese")]
 
 [node name="Pages" type="Node2D" parent="."]
 script = ExtResource("2_67vtu")
@@ -60,16 +64,6 @@ script = ExtResource("2_67vtu")
 [node name="0" type="Sprite2D" parent="Pages"]
 position = Vector2(303, 304)
 texture = ExtResource("1_7hocn")
-
-[node name="Label" type="Label" parent="Pages/0"]
-offset_left = -291.0
-offset_top = -292.0
-offset_right = -251.0
-offset_bottom = -269.0
-theme_override_colors/font_color = Color(0.541176, 0.541176, 0.541176, 1)
-theme_override_fonts/font = ExtResource("4_3fqjo")
-theme_override_font_sizes/font_size = 15
-text = "press left and right to move"
 
 [node name="1" type="Marker2D" parent="Pages"]
 position = Vector2(1028, 310)
@@ -97,6 +91,7 @@ autowrap_mode = 2
 
 [node name="English" type="Label" parent="Pages/1"]
 unique_name_in_owner = true
+visible = false
 offset_left = -186.0
 offset_top = -129.0
 offset_right = 198.0
@@ -108,6 +103,20 @@ In the middle of the desert, where you never really see anyone and without think
 Day after day, one after one, night after night, week after week."
 autowrap_mode = 2
 
+[node name="japanese" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+offset_left = -189.0
+offset_top = -99.0
+offset_right = 174.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "他の日と変わらない、ただの普通の日。果てしない無の広大さにただある、もう一つの日。悠久の時を生き抜いてきた花は、孤独だった。
+
+誰もいない砂漠の中、何も考えずにただ、風を砂を吹き飛ばすのを見る。
+
+一日一日、夜も昼も、一週間一週間。"
+autowrap_mode = 3
+
 [node name="2" type="AnimatedSprite2D" parent="Pages"]
 z_index = -100
 z_as_relative = false
@@ -115,15 +124,18 @@ position = Vector2(1008, 970)
 sprite_frames = SubResource("SpriteFrames_5qar2")
 autoplay = "default"
 
-[node name="Label" type="Label" parent="Pages/2"]
-offset_left = 116.0
-offset_top = 216.0
-offset_right = 281.0
-offset_bottom = 318.0
-theme_override_colors/font_color = Color(0.32549, 0.192157, 0.654902, 1)
-theme_override_fonts/font = ExtResource("13_dj7sa")
-theme_override_font_sizes/font_size = 30
-text = "press Space"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Continue" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 1143.0
+offset_top = 1202.0
+offset_right = 1293.0
+offset_bottom = 1252.0
+mouse_filter = 1
+theme = ExtResource("15_ohm0f")
+text = "CONTINUE"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -132,8 +144,7 @@ position = Vector2(300, 302)
 [node name="Language" type="Node" parent="."]
 script = ExtResource("14_pa21n")
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-one_shot = true
+[node name="PagesButtons" parent="." node_paths=PackedStringArray("Root") instance=ExtResource("15_bd54o")]
+Root = NodePath("..")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Continue" to="." method="_on_continue_pressed"]

@@ -2,27 +2,47 @@ extends Node2D
 
 @export var MaxPages : int
 @export var CurrentPage : int
-@export var Next : String
+@export var Next : int
+
+@export var TextosSpanish : Array[Label]
+@export var TextosEnglish : Array[Label]
+@export var TextosJapanese : Array[Label]
 
 func _ready():
 	Curtain.get_node("AnimationPlayer").play("FadeOut")
-
-func _process(delta):
 	
+	HideTexts()
+	
+	match(Variables.Language):
+		"SPANISH" : 
+			for i in TextosSpanish:
+				i.show()
+		"ENGLISH" : 
+			for i in TextosEnglish:
+				i.show()
+		"JAPANESE" : 
+			for i in TextosJapanese:
+				i.show()
+
+func HideTexts():
+	for i in TextosSpanish:
+		i.hide()
+	for i in TextosEnglish:
+		i.hide()
+	for i in TextosJapanese:
+		i.hide()
+
+func LEFT():
 	if CurrentPage > 0:
-		if Input.is_action_just_released("LEFT"):
-			CurrentPage -= 1
-			$Pages.SetTarget(str(CurrentPage))
+		CurrentPage -= 1
+		$Pages.SetTarget(str(CurrentPage))
+
+func RIGHT():
 	if CurrentPage < MaxPages -1:
-		if Input.is_action_just_released("RIGHT"):
-			CurrentPage += 1
-			$Pages.SetTarget(str(CurrentPage))
-	
-	if CurrentPage >= MaxPages -1:
-		if Input.is_action_just_released("Space"):
-			Curtain.get_node("AnimationPlayer").play("FadeOut")
-			%Timer.start(1)
+		CurrentPage += 1
+		$Pages.SetTarget(str(CurrentPage))
 
 
-func _on_timer_timeout():
-	get_tree().change_scene_to_file(Next)
+func _on_continue_pressed():
+	Variables.current = Next
+	Curtain.get_node("AnimationPlayer").play("FadeIn")

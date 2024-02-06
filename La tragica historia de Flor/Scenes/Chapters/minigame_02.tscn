@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://274ewmjyui2m"]
+
+[ext_resource type="Script" path="res://Scenes/Code/Chapter 01/minigame_01.gd" id="1_g6fk0"]
+[ext_resource type="Texture2D" uid="uid://bgyofs6o7ympt" path="res://2D/Pages/Chapter 00/rocky animation/01.png" id="2_uyvwy"]
+[ext_resource type="Texture2D" uid="uid://5d1vwygahrr2" path="res://2D/Pages/Chapter 00/rocky animation/02.png" id="3_83det"]
+[ext_resource type="Texture2D" uid="uid://bkha214vsq3rk" path="res://2D/Pages/Chapter 00/rocky animation/03.png" id="4_515rj"]
+[ext_resource type="Texture2D" uid="uid://dbs8k4ammq6e8" path="res://2D/Pages/Chapter 00/rocky animation/04.png" id="5_1lu7f"]
+[ext_resource type="Texture2D" uid="uid://b5h3tk2i0t85o" path="res://2D/Pages/Chapter 00/rocky animation/05.png" id="6_lxom5"]
+[ext_resource type="Texture2D" uid="uid://drh65ojmq62h" path="res://2D/Pages/Chapter 00/rocky animation/06.png" id="7_vqwmt"]
+[ext_resource type="Texture2D" uid="uid://ddefp4dfgdg40" path="res://2D/Pages/Chapter 00/rocky animation/07.png" id="8_27e22"]
+[ext_resource type="Texture2D" uid="uid://cbnqseclmf3yq" path="res://2D/Pages/Chapter 00/rocky animation/08.png" id="9_4wqkx"]
+[ext_resource type="FontFile" uid="uid://ctop28y4jfknr" path="res://Fonts/Kanit-Bold.ttf" id="10_er7ph"]
+[ext_resource type="Texture2D" uid="uid://ckoho80jxh1md" path="res://2D/Pages/chapter 02/flower.png" id="11_asyn7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi833"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uyvwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_83det")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_515rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1lu7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lxom5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vqwmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_27e22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4wqkx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Minigame01" type="Node2D"]
+script = ExtResource("1_g6fk0")
+max_pics = 7
+Next = 5
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_gi833")
+frame = 7
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="HP" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 22.0
+offset_top = 553.0
+offset_right = 322.0
+offset_bottom = 580.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 524.0
+offset_right = 156.0
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(0.270588, 0.270588, 0.270588, 1)
+theme_override_fonts/font = ExtResource("10_er7ph")
+text = "Press Z to Attack"
+
+[node name="Flower" type="Sprite2D" parent="."]
+position = Vector2(498, 445)
+texture = ExtResource("11_asyn7")

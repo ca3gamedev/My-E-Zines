@@ -1,3 +1,152 @@
-[gd_scene format=3 uid="uid://c1441kgsq7q6e"]
+[gd_scene load_steps=18 format=3 uid="uid://c1441kgsq7q6e"]
 
-[node name="Chapter 02" type="Node2D"]
+[ext_resource type="Script" path="res://Scenes/Code/story01.gd" id="1_8q5qj"]
+[ext_resource type="Script" path="res://Scenes/Code/Pages.gd" id="2_1l46f"]
+[ext_resource type="Texture2D" uid="uid://dlgwdtek4mxm2" path="res://2D/Pages/chapter 01/0.png" id="3_3wb44"]
+[ext_resource type="FontFile" uid="uid://djgiofmk4nod4" path="res://Fonts/Kanit-Regular.ttf" id="4_npflb"]
+[ext_resource type="Texture2D" uid="uid://bgyofs6o7ympt" path="res://2D/Pages/Chapter 00/rocky animation/01.png" id="5_m7sj6"]
+[ext_resource type="Texture2D" uid="uid://5d1vwygahrr2" path="res://2D/Pages/Chapter 00/rocky animation/02.png" id="6_g8rfc"]
+[ext_resource type="Texture2D" uid="uid://bkha214vsq3rk" path="res://2D/Pages/Chapter 00/rocky animation/03.png" id="7_qw7as"]
+[ext_resource type="Texture2D" uid="uid://dbs8k4ammq6e8" path="res://2D/Pages/Chapter 00/rocky animation/04.png" id="8_2kj1v"]
+[ext_resource type="Texture2D" uid="uid://b5h3tk2i0t85o" path="res://2D/Pages/Chapter 00/rocky animation/05.png" id="9_v66eh"]
+[ext_resource type="Texture2D" uid="uid://drh65ojmq62h" path="res://2D/Pages/Chapter 00/rocky animation/06.png" id="10_w6hp6"]
+[ext_resource type="Texture2D" uid="uid://ddefp4dfgdg40" path="res://2D/Pages/Chapter 00/rocky animation/07.png" id="11_vuuyl"]
+[ext_resource type="Texture2D" uid="uid://cbnqseclmf3yq" path="res://2D/Pages/Chapter 00/rocky animation/08.png" id="12_47tx7"]
+[ext_resource type="Theme" uid="uid://co8f15g3ddeeo" path="res://Scenes/GUI/Button.tres" id="13_7b8gq"]
+[ext_resource type="Script" path="res://Scenes/Code/Chapter 01/Language.gd" id="14_6n6yf"]
+[ext_resource type="PackedScene" uid="uid://bhmrl7mxkfaos" path="res://Scenes/GUI/pages_buttons.tscn" id="15_bx2bn"]
+[ext_resource type="Texture2D" uid="uid://ckoho80jxh1md" path="res://2D/Pages/chapter 02/flower.png" id="16_tlis0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qar2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_m7sj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g8rfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qw7as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2kj1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v66eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w6hp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vuuyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_47tx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Story" type="Node2D" node_paths=PackedStringArray("TextosSpanish", "TextosEnglish", "TextosJapanese")]
+z_index = -100
+z_as_relative = false
+script = ExtResource("1_8q5qj")
+MaxPages = 3
+Next = 4
+TextosSpanish = [NodePath("Pages/1/Spanish")]
+TextosEnglish = [NodePath("Pages/1/English")]
+TextosJapanese = [NodePath("Pages/1/japanese")]
+
+[node name="Pages" type="Node2D" parent="."]
+script = ExtResource("2_1l46f")
+
+[node name="0" type="Sprite2D" parent="Pages"]
+position = Vector2(303, 304)
+texture = ExtResource("3_3wb44")
+
+[node name="1" type="Marker2D" parent="Pages"]
+position = Vector2(1028, 310)
+
+[node name="ColorRect" type="ColorRect" parent="Pages/1"]
+offset_left = -246.0
+offset_top = -238.0
+offset_right = 254.0
+offset_bottom = 262.0
+
+[node name="Spanish" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+offset_left = -161.0
+offset_top = -88.0
+offset_right = 198.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_npflb")
+text = "Habiaselo y dáselo.
+A todos, a todas.
+A todos aquellos seres que quizás existen más allá de las infinidades y nimiedades de su situación, cómica, pero al final trágica, del aburrimiento mas absurdo que alguna vez, y que aquella vez, no había sucedido nada, de la nada. Pero es nada, de lo mas absoluto de la nada."
+autowrap_mode = 2
+
+[node name="English" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+visible = false
+offset_left = -153.0
+offset_top = -90.0
+offset_right = 184.0
+offset_bottom = 147.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_npflb")
+text = "He had it and give it to her.
+To everyone, to all.
+To all those beings who may exist beyond the infinities and trivialities of their situation, comic but ultimately tragic, of the most absurd boredom that ever, and that that time, nothing had happened, out of nothing. But it is nothing, of the most absolute nothingness."
+autowrap_mode = 2
+
+[node name="japanese" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+visible = false
+offset_left = -158.0
+offset_top = -83.0
+offset_right = 174.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "彼/彼女にそれを与えてください。
+誰にでも、すべての人に。
+無限の彼方、退屈のあまり滑稽で悲劇的な状況の些末なこと、そして何も起こらなかったあの時、何もないところから存在するかもしれないすべての存在に。しかし、それは何物でもない、完全な無からのものです。"
+autowrap_mode = 3
+
+[node name="2" type="AnimatedSprite2D" parent="Pages"]
+z_index = -100
+z_as_relative = false
+position = Vector2(1008, 970)
+sprite_frames = SubResource("SpriteFrames_5qar2")
+autoplay = "default"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Continue" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 1143.0
+offset_top = 1202.0
+offset_right = 1293.0
+offset_bottom = 1252.0
+mouse_filter = 1
+theme = ExtResource("13_7b8gq")
+text = "CONTINUE"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(300, 302)
+
+[node name="Language" type="Node" parent="."]
+script = ExtResource("14_6n6yf")
+
+[node name="PagesButtons" parent="." node_paths=PackedStringArray("Root") instance=ExtResource("15_bx2bn")]
+Root = NodePath("..")
+
+[node name="Flower" type="Sprite2D" parent="."]
+position = Vector2(1195, 1048)
+texture = ExtResource("16_tlis0")
+
+[connection signal="pressed" from="CanvasLayer/Continue" to="." method="_on_continue_pressed"]

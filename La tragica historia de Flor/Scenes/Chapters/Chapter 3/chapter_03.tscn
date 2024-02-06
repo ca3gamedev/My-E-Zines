@@ -1,0 +1,251 @@
+[gd_scene load_steps=8 format=3 uid="uid://rqq6bcgs032w"]
+
+[ext_resource type="Script" path="res://Scenes/Code/story01.gd" id="1_s21ev"]
+[ext_resource type="Script" path="res://Scenes/Code/Pages.gd" id="2_8w8bm"]
+[ext_resource type="Texture2D" uid="uid://c61ulv0rerqyc" path="res://2D/Pages/chapter 02/chapter 3.png" id="3_i5bpo"]
+[ext_resource type="FontFile" uid="uid://djgiofmk4nod4" path="res://Fonts/Kanit-Regular.ttf" id="4_yt4is"]
+[ext_resource type="Theme" uid="uid://co8f15g3ddeeo" path="res://Scenes/GUI/Button.tres" id="13_dqtr5"]
+[ext_resource type="Script" path="res://Scenes/Code/Chapter 01/Language.gd" id="14_n3xrn"]
+[ext_resource type="PackedScene" uid="uid://bhmrl7mxkfaos" path="res://Scenes/GUI/pages_buttons.tscn" id="15_gpm2s"]
+
+[node name="Story" type="Node2D" node_paths=PackedStringArray("TextosSpanish", "TextosEnglish", "TextosJapanese")]
+z_index = -100
+z_as_relative = false
+script = ExtResource("1_s21ev")
+MaxPages = 6
+Next = 6
+TextosSpanish = [NodePath("Pages/1/Spanish"), NodePath("Pages/2/Spanish"), NodePath("Pages/3/Spanish"), NodePath("Pages/4/Spanish")]
+TextosEnglish = [NodePath("Pages/1/English"), NodePath("Pages/2/English"), NodePath("Pages/3/English"), NodePath("Pages/4/English")]
+TextosJapanese = [NodePath("Pages/1/japanese"), NodePath("Pages/2/japanese"), NodePath("Pages/3/japanese"), NodePath("Pages/4/japanese")]
+
+[node name="Pages" type="Node2D" parent="."]
+script = ExtResource("2_8w8bm")
+
+[node name="0" type="Sprite2D" parent="Pages"]
+position = Vector2(303, 304)
+texture = ExtResource("3_i5bpo")
+
+[node name="1" type="Marker2D" parent="Pages"]
+position = Vector2(1028, 310)
+
+[node name="ColorRect" type="ColorRect" parent="Pages/1"]
+offset_left = -246.0
+offset_top = -238.0
+offset_right = 254.0
+offset_bottom = 262.0
+
+[node name="Spanish" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+visible = false
+offset_left = -174.0
+offset_top = -136.0
+offset_right = 198.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "Y así, pasaban los días, uno tras otro, día tras día, semana tras semana, noche tras noche.
+Viendo como el viento se movía de atrás hacia adelante, de izquierda a derecha, de aquí para allá.
+Nada mas que ese infernal entretenimiento por eones, y ya con esos dones, que nuestra flor, con todos sus hermosos colores, que estaba vestiose para tal evento, y bien adentro, de su ser. Como una premonición, despertó.
+"
+autowrap_mode = 2
+
+[node name="English" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+visible = false
+offset_left = -173.0
+offset_top = -136.0
+offset_right = 164.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "And so, the days passed, one after another, day after day, week after week, night after night.
+Watching the wind move from back to front, from left to right, from here to there.
+Nothing but that infernal entertainment for eons, and already with those gifts, that our flower, with all its beautiful colors, that was dressing up for such an event, and deep inside, of its being. As a premonition, it woke up."
+autowrap_mode = 2
+
+[node name="japanese" type="Label" parent="Pages/1"]
+unique_name_in_owner = true
+offset_left = -170.0
+offset_top = -111.0
+offset_right = 162.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "そして、日々は過ぎていった。一日一日、一週間一週間、夜ごとに。
+風が後ろから前へ、左から右へ、あちらこちらへ動くのを見ていた。
+何千年もの間、ただその地獄のような娯楽だけが続いていた。そして、すでにその才能を持って、私たちの美しい色をした花は、そのような出来事のために着飾っていた。そして、その存在の深部で、予感のように目覚めた。"
+autowrap_mode = 3
+
+[node name="2" type="Marker2D" parent="Pages"]
+position = Vector2(271, 957)
+
+[node name="ColorRect" type="ColorRect" parent="Pages/2"]
+offset_left = -246.0
+offset_top = -238.0
+offset_right = 254.0
+offset_bottom = 262.0
+
+[node name="Spanish" type="Label" parent="Pages/2"]
+visible = false
+offset_left = -174.0
+offset_top = -136.0
+offset_right = 198.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "Ese dia fue algo diferente.
+El viento no soplaba, el sol cálido pero era un sol gentil, y en mucho tiempo ya se veían algunas nubes grises a lo lejos.
+Oh, qué día tan diferente, dijose flor, para sus adentros, y con todo dentro, sintió dentro de sí misma que ese día iba a ser especial.
+De alguna manera sus pétalos sonreían, y para sí misma se dijo que iba a cantar para pasar el dia, dentro de su mente.
+"
+autowrap_mode = 2
+
+[node name="English" type="Label" parent="Pages/2"]
+visible = false
+offset_left = -167.0
+offset_top = -157.0
+offset_right = 170.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "That day was something different.
+The wind was not blowing, the sun was warm but gentle, and for the first time in a long time, some gray clouds could be seen in the distance.
+Oh, what a different day, the flower said to itself, and with everything inside, it felt inside itself that that day was going to be special.
+Somehow its petals smiled, and to itself it said that it was going to sing to pass the day, inside its mind."
+autowrap_mode = 2
+
+[node name="japanese" type="Label" parent="Pages/2"]
+offset_left = -152.0
+offset_top = -112.0
+offset_right = 180.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "その日は何か違った。
+風は吹かず、太陽は暖かく、しかし優しい日差しで、久しぶりに遠くには灰色の雲が見えた。
+なんて違う日なんだ、花は心の中で自分に言い聞かせ、すべてを内に秘め、その日は特別な日になることを感じた。
+なぜか花びらは微笑み、心の中でその一日を歌うことを決意した。"
+autowrap_mode = 3
+
+[node name="3" type="Marker2D" parent="Pages"]
+position = Vector2(1745, 307)
+
+[node name="ColorRect" type="ColorRect" parent="Pages/3"]
+offset_left = -246.0
+offset_top = -238.0
+offset_right = 254.0
+offset_bottom = 262.0
+
+[node name="Spanish" type="Label" parent="Pages/3"]
+visible = false
+offset_left = -172.0
+offset_top = -110.0
+offset_right = 200.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "De repente, y sin ningún contratiempo, ese ser maligno arribó a aquella, su pequeña y humilde morada, en donde no hay nada.
+Era parecido a un cuervo, de un plumaje, completamente negro, negro como su alma, negro como su ser.
+De la nada, hizo un gruñido gutural, y empezó a caminar.
+"
+autowrap_mode = 2
+
+[node name="English" type="Label" parent="Pages/3"]
+visible = false
+offset_left = -168.0
+offset_top = -108.0
+offset_right = 169.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "Suddenly, and without any setbacks, that evil being arrived at that, its small and humble abode, where there is nothing.
+It was similar to a crow, with plumage completely black, black as its soul, black as its being.
+Out of nowhere, it made a guttural grunt and started walking."
+autowrap_mode = 2
+
+[node name="japanese" type="Label" parent="Pages/3"]
+offset_left = -152.0
+offset_top = -43.0
+offset_right = 188.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "突然、何の障害もなく、その邪悪な存在は、何もない小さな住居に到着しました。
+それはカラスに似ていて、羽毛は真っ黒で、魂のように黒く、その存在のように黒かった。
+突然、彼は喉を鳴らして歩き始めた。"
+autowrap_mode = 3
+
+[node name="4" type="Marker2D" parent="Pages"]
+position = Vector2(2425, -305)
+
+[node name="ColorRect" type="ColorRect" parent="Pages/4"]
+offset_left = -246.0
+offset_top = -238.0
+offset_right = 254.0
+offset_bottom = 262.0
+
+[node name="Spanish" type="Label" parent="Pages/4"]
+visible = false
+offset_left = -172.0
+offset_top = -110.0
+offset_right = 169.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "Flor estaba confundida.
+Nunca vio nada similar a ese ser en toda su vida, no sabía que hacer.
+De repente se le ocurrió danzar para ver si quería ser su amigo, en aquel día trágico.
+Seguramente así, quizás así, desearía ser el único amigo en mi vida.
+"
+autowrap_mode = 2
+
+[node name="English" type="Label" parent="Pages/4"]
+offset_left = -170.0
+offset_top = -111.0
+offset_right = 167.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("4_yt4is")
+text = "Flower was confused.
+She had never seen anything like that being in her entire life, she didn't know what to do.
+Suddenly it occurred to her to dance to see if he wanted to be her friend, on that tragic day.
+Surely that way, maybe that way, he would want to be the only friend in my life."
+autowrap_mode = 2
+
+[node name="japanese" type="Label" parent="Pages/4"]
+offset_left = -169.0
+offset_top = -96.0
+offset_right = 163.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+text = "花は混乱していた。
+生まれて初めて見るような存在で、何をすればいいのか分からなかった。
+突然、その日の悲劇的な出来事をきっかけに、彼と友達になりたいと思って踊り始めた。
+きっとそうすれば、彼だけが私の人生唯一の友達になってくれるだろう。"
+autowrap_mode = 3
+
+[node name="5" type="Sprite2D" parent="Pages"]
+position = Vector2(2530, 876)
+texture = ExtResource("3_i5bpo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Continue" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(150, 50)
+offset_left = 2670.0
+offset_top = 1106.0
+offset_right = 2820.0
+offset_bottom = 1156.0
+mouse_filter = 1
+theme = ExtResource("13_dqtr5")
+text = "CONTINUE"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(300, 302)
+
+[node name="Language" type="Node" parent="."]
+script = ExtResource("14_n3xrn")
+
+[node name="PagesButtons" parent="." node_paths=PackedStringArray("Root") instance=ExtResource("15_gpm2s")]
+Root = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/Continue" to="." method="_on_continue_pressed"]

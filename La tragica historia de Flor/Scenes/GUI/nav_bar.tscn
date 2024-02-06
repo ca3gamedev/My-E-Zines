@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=3 uid="uid://pli30kt46prj"]
+
+[ext_resource type="FontFile" uid="uid://b6ckuneecs4k2" path="res://Fonts/ProtestRevolution-Regular.ttf" id="1_60uof"]
+[ext_resource type="Script" path="res://Scenes/GUI/nav_bar.gd" id="1_h0kmu"]
+[ext_resource type="Theme" uid="uid://co8f15g3ddeeo" path="res://Scenes/GUI/Button.tres" id="2_vvlmj"]
+[ext_resource type="FontFile" uid="uid://djgiofmk4nod4" path="res://Fonts/Kanit-Regular.ttf" id="2_wgqbn"]
+[ext_resource type="FontFile" uid="uid://ctop28y4jfknr" path="res://Fonts/Kanit-Bold.ttf" id="3_uhgso"]
+
+[sub_resource type="Animation" id="Animation_rpui0"]
+resource_name = "In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -73), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jepc6"]
+resource_name = "Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -73)]
+}
+
+[sub_resource type="Animation" id="Animation_u2uew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtb61"]
+_data = {
+"In": SubResource("Animation_rpui0"),
+"Out": SubResource("Animation_jepc6"),
+"RESET": SubResource("Animation_u2uew")
+}
+
+[node name="NavBar" type="Node2D"]
+z_index = 200
+z_as_relative = false
+script = ExtResource("1_h0kmu")
+Down = true
+Idle = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Node2D"]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 607.0
+offset_bottom = 81.0
+color = Color(0.835294, 0.937255, 0.921569, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Node2D"]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 607.0
+offset_bottom = 74.0
+color = Color(0.25098, 0.427451, 0.403922, 0.521569)
+
+[node name="Label" type="Label" parent="CanvasLayer/Node2D"]
+offset_left = 458.0
+offset_top = 44.0
+offset_right = 593.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0.419608, 0.411765, 1)
+theme_override_fonts/font = ExtResource("1_60uof")
+theme_override_font_sizes/font_size = 20
+text = "Historia de Flor"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Node2D"]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 94.0
+offset_bottom = 71.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Node2D/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Español" type="Button" parent="CanvasLayer/Node2D/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_vvlmj")
+theme_override_colors/font_color = Color(0.827451, 0.937255, 0.996078, 1)
+theme_override_fonts/font = ExtResource("2_wgqbn")
+theme_override_font_sizes/font_size = 10
+text = "Español"
+
+[node name="Ehglish" type="Button" parent="CanvasLayer/Node2D/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_vvlmj")
+theme_override_colors/font_color = Color(0.827451, 0.937255, 0.996078, 1)
+theme_override_fonts/font = ExtResource("2_wgqbn")
+theme_override_font_sizes/font_size = 10
+text = "English"
+
+[node name="Nihongo" type="Button" parent="CanvasLayer/Node2D/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_vvlmj")
+theme_override_colors/font_color = Color(0.827451, 0.937255, 0.996078, 1)
+theme_override_fonts/font = ExtResource("2_wgqbn")
+theme_override_font_sizes/font_size = 10
+text = "日本語"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Node2D/VBoxContainer"]
+layout_mode = 2
+
+[node name="Return" type="Button" parent="CanvasLayer/Node2D/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_vvlmj")
+theme_override_colors/font_color = Color(0.827451, 0.937255, 0.996078, 1)
+theme_override_fonts/font = ExtResource("2_wgqbn")
+theme_override_font_sizes/font_size = 10
+text = "Return"
+
+[node name="Start" type="Button" parent="CanvasLayer/Node2D/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_vvlmj")
+theme_override_colors/font_color = Color(0.827451, 0.937255, 0.996078, 1)
+theme_override_fonts/font = ExtResource("2_wgqbn")
+theme_override_font_sizes/font_size = 10
+text = "Start"
+
+[node name="HideNavBar" type="Button" parent="CanvasLayer/Node2D"]
+offset_left = 288.0
+offset_top = 72.0
+offset_right = 341.0
+offset_bottom = 125.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_vvlmj")
+theme_override_fonts/font = ExtResource("3_uhgso")
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mtb61")
+}
+
+[connection signal="pressed" from="CanvasLayer/Node2D/VBoxContainer/HBoxContainer/Español" to="." method="_on_español_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/VBoxContainer/HBoxContainer/Ehglish" to="." method="_on_ehglish_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/VBoxContainer/HBoxContainer/Nihongo" to="." method="_on_nihongo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/VBoxContainer/HBoxContainer2/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/VBoxContainer/HBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Node2D/HideNavBar" to="." method="_on_hide_nav_bar_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

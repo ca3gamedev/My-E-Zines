@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgtkr2s0c8na"]
+
+[ext_resource type="AudioStream" uid="uid://b0tjv1pmyt4f1" path="res://Music/sadsong.ogg" id="1_vxqjm"]
+
+[node name="Song" type="Node2D"]
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_vxqjm")
+autoplay = true
